@@ -1,0 +1,170 @@
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+            <meta name="description" content="" />
+            <meta name="author" content="" />
+            <title>Iasmim docerria</title>
+            <link rel="icon" type="image/x-icon" href="assets/favicon-32x32.png" />
+            <!-- Font Awesome icons (free version)-->
+            <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+            <!-- Google fonts-->
+            <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+            <!-- Core theme CSS (includes Bootstrap)-->
+            <link href="css/styles.css" rel="stylesheet" />
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: beige;
+                }
+        
+                h2 {
+                    text-align: center;
+                }
+        
+                form {
+                    margin: 0 auto;
+                    width: 300px;
+                    padding: 20px;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+        
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+        
+                input[type="text"],
+                input[type="submit"] {
+                    width: calc(100% - 12px);
+                    padding: 8px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 3px;
+                }
+        
+                input[type="submit"] {
+                    background-color: #3498db;
+                    color: white;
+                    cursor: pointer;
+                }
+        
+                p {
+                    text-align: center;
+                    margin-top: 10px;
+                }
+            </style>
+        </head>
+        <body>
+
+        <div style="width: 2515px; height: 100px; background-color: #ec77bb; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
+
+        
+            <body style="background-color: beige(48, 48, 48);"> 
+                <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+                    <div class="container px-4 px-lg-5">
+                    
+                        <img src="assets/favicon-32x32.png" wight="80px", height="80px" alt="Minha Imagem">
+                        <a class="navbar-brand" href="index.html"  >Iasmim Doceria</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            Menu
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./login.html">login</a></li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+
+                </nav> 
+            </div>
+        </div>
+        <hr><hr>
+
+
+        <form method="post" action="inserir.php">
+            <h2>Cadastre-se na Doceria</h2>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <label for="confirma-senha">Confirmação de Senha:</label>
+            <input type="password" id="confirma-senha" name="confirma-senha" required>
+
+            <label><input type="radio" id="aceitar-termos" name="aceitar-termos" required>
+                Aceito os termos de usuário
+                
+            </label>
+
+            <button type="submit">Confirmar Cadastro</button>
+        </form>
+    </body>
+
+    <script>
+        // Máscara para o campo CPF
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+
+        // Máscara para o campo Telefone
+        $('#telefone').mask('(00) 00000-0000');
+
+        // Validação do formulário
+        $('#registrationForm').submit(function() {
+            var password = $('#senha').val();
+            var confirmPassword = $('#confirma-senha').val();
+            var email = $('#email').val();
+
+            // Verifica se a senha atende aos critérios
+            var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+            if (!passwordPattern.test(password)) {
+                alert('A senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra, um número e um caractere especial.');
+                return false;
+            }
+
+            // Verifica se as senhas coincidem
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem.');
+                return false;
+            }
+
+            // Aqui você pode adicionar a lógica para verificar se o email já existe no seu sistema
+            // Supondo que você tenha uma função para fazer essa verificação
+            if (emailAlreadyExists(email)) {
+                alert('O email já está cadastrado. Escolha outro email.');
+                return false;
+            }
+
+            return true;
+        });
+
+        // Função fictícia para verificar se o email já existe
+        function emailAlreadyExists(email) {
+            // Lógica para verificar no banco de dados se o email já está cadastrado
+            // Substitua este exemplo com a lógica real de verificação
+            var existingEmails = ['usuario1@gmail.com', 'usuario2@gmail.com', 'usuario3@gmail.com'];
+            return existingEmails.includes(email);
+        }
+    </script>
+    
+    </html>

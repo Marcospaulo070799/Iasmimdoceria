@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Cardápio</title>
+        <link rel="icon" type="image/x-icon" href="./assets/favicon-32x32.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        
+    </head>
+    <div style="width: 2500px; height: 100px; background-color: #ec77bb; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
+
+    
+        <body style="background-color: beige(48, 48, 48);"> 
+            <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+                <div class="container px-4 px-lg-5">
+                   
+                    <img src="assets/favicon-32x32.png" wight="80px", height="80px" alt="Minha Imagem">
+                    <a class="navbar-brand" href="index.html"  >Iasmim Doceria</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+                        <i class="fas fa-bars"></i>
+                    </button>
+                
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li><br>
+                            <button class="buttonn" onclick="toggleMenu()">
+                                <!-- Ícone no botão (Você pode usar uma imagem ou outro ícone) -->
+                                <span class="icon">👤 <br></span>
+                                Abrir Menu
+                        
+                                <!-- Menu -->
+                                <div class="menu" id="menu">
+                                    <div class="menu-option" onclick="redirectToConsulta()">Atualizar</div>
+                                    <div class="menu-option" onclick="redirectToDelete()">Excluir</div>
+                                </div>
+                            </button>
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+
+            </nav> 
+        </div>
+    </div>
+    <hr><hr>
+        
+
+    <div class="menu-item">
+        <img src="assets/img/cardapio/brownie_bejinho.jpeg"  alt="Brownie beijinho">
+        <div class="menu-item-description">
+            <h2>Brownie de Beijinho</h2>
+            <p>Brownie de chocolate, recheio de leite Ninho, com coco ralado.</p>
+            <p>Preço: R$ 12,00.</p>
+        </div><br>
+        <div class="buy-button">
+            <button onclick="showPopup('Compra realizada com sucesso!')">Comprar</button><hr>
+            <button id="counterButton">0</button>
+        </div>
+    </div>
+    <div class="menu-item">
+        <img src="assets/img/cardapio/pudim.jpeg" alt="Pudim">
+        <div class="menu-item-description">
+            <h2>Pudim</h2>
+            <p>Pudim de leite Ninho.</p>
+            <p>Preço: R$ 5,00.</p>
+        </div><br>
+        <div class="buy-button">
+            <button onclick="showPopup('Compra realizada com sucesso!')">Comprar</button><hr>
+            <button id="counterButton">0</button>
+        </div>
+    </div>
+    <div class="menu-item">
+        <img src="assets/img/cardapio/ovo_de_pascoa.jpeg" alt="ovo de pascoa">
+        <div class="menu-item-description">
+            <h2>Ovo de pascoa </h2>
+            <p>Possui 1 unidade de cada, Brigadeiro, Bem casado, Oreo, Ninho com Nutella.</p>
+            <p>Preço: R$ 25,00</p>
+        </div><br>
+        <div class="buy-button">
+            <button onclick="showPopup('Compra realizada com sucesso!')">Comprar</button><hr>
+            <button id="counterButton">0</button>
+        </div>
+    </div>
+    <div class="menu-item">
+        <img src="assets/img/cardapio/combo.jpeg" alt="Prato 2">
+        <div class="menu-item-description">
+            <h2>Combo de coxinha</h2>
+            <p>
+                1-coxinha de frango <br>
+                1- coca 250ml <br>
+                1-brownie
+            </p>
+            <p>Preço: R$ 22,50</p>
+        </div><br>
+        <div class="buy-button">
+            <button onclick="showPopup('Compra realizada com sucesso!')">Comprar</button><hr>
+            <button id="counterButton">0</button>
+        </div>
+    </div>
+    <script>
+         // Função para exibir/ocultar o menu ao clicar no botão
+         function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+          // Função para redirecionar para consulta.php
+          function redirectToConsulta() {
+            window.location.href = "consulta.php";
+        }
+
+        // Funções para as opções do menu
+        function update() {
+            alert("Opção Atualizar selecionada!");
+        }
+         // Função para redirecionar para delete.html
+         function redirectToDelete() {
+            window.location.href = "delete.html";
+        }
+
+        function deleteItem() {
+            alert("Opção Excluir selecionada!");
+        }
+          function showPopup(message) {
+            alert(message);
+        }
+        // JavaScript para o contador
+        var counter = 0; // Inicializa o contador em 0
+
+        document.getElementById("incrementButton").addEventListener("click", function() {
+            if (counter < 10) {
+                counter++; // Aumenta o contador em 1
+                document.getElementById("counter").textContent = counter; // Atualiza o valor exibido
+            }
+        });
+    </script>
+      <script>
+        // JavaScript para o contador
+        var counter = 0; // Inicializa o contador em 0
+
+        // Função para atualizar o contador e redefinir quando chega a 10
+        function updateCounter() {
+            if (counter < 10) {
+                counter++; // Aumenta o contador em 1
+            } else {
+                counter = 0; // Zera o contador quando chega a 10
+            }
+            document.getElementById("counterButton").textContent = counter; // Atualiza o texto do botão
+        }
+
+        // Adiciona um ouvinte de eventos ao botão
+        document.getElementById("counterButton").addEventListener("click", updateCounter);
+    </script>
+     </body>
+</html>

@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon-32x32.png" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 300px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 2515px; height: 100px; background-color: #ec77bb; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
+        <body style="background-color: beige(48, 48, 48);">
+            <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+                <div class="container px-4 px-lg-5">
+                    <img src="assets/favicon-32x32.png" wight="80px", height="80px" alt="Minha Imagem">
+                    <a class="navbar-brand" href="index.html"  >Iasmim Doceria</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <hr><hr>
+    <form  method="post" action="login.php">
+        <h2>Login</h2>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+        <p>Não está cadastrado? <a href="registro.html">Cadastre-se aqui</a>.</p>
+        <input type="submit" value="Entrar">
+    </form>
+    
+</body>
+<script>
+    $(document).ready(function() {
+        $('#loginForm').submit(function(event) {
+            var email = $('#email').val();
+            var senha = $('#senha').val();
+
+            // Verifica se o email e a senha estão incorretos (você deve implementar sua lógica de verificação)
+            if (email !== 'usuario@exemplo.com' || senha !== 'senha@123') {
+                event.preventDefault(); // Previne o envio do formulário
+
+                // Mostra um pop-up indicando que o login está incorreto
+                alert('Email ou senha incorretos. Por favor, tente novamente.');
+
+                // Abre um checkbox para retornar à tela de login
+                var returnCheckbox = '<label><input type="checkbox" id="returnToLogin"> Voltar para o login</label>';
+                $('form').append(returnCheckbox);
+
+                // Adiciona um evento ao checkbox para redirecionar à tela de login ao ser marcado
+                $('#returnToLogin').change(function() {
+                    if ($(this).is(':checked')) {
+                        window.location.href = 'login.html';
+                    }
+                });
+            }
+        });
+    });
+</script>
+</html>
